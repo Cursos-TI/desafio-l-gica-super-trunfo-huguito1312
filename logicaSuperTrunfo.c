@@ -9,14 +9,14 @@ int main() {
     printf("**Desafio Supertrunfo**\n");
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    int carta1, carta2;
-    char estado1[3], estado2[3];
-    char codigo1[4], codigo2[4];
-    char cidade1[20], cidade2[20];
-    unsigned long int populacao1, populacao2;
-    int area1, area2;
-    float PIB1, PIB2;
-    int pontos_tur1, pontos_tur2;
+    int carta1 = 1, carta2 = 2;
+    char estado1[3] = 'RJ', estado2[3] = 'RJ';
+    char codigo1[4] = 'RJ1', codigo2[4] = 'RJ2';
+    char cidade1[20] = 'Rio de Janeiro', cidade2[20] = 'Niterói';
+    unsigned long int populacao1 = 6211000, populacao2 = 481749;
+    int area1 = 1200, area2 = 134;
+    float PIB1 = 1150000000000, PIB2 = 66345730;
+    int pontos_tur1 = 2698, pontos_tur2 = 623;
     float densidade_pop1, densidade_pop2;
     float PIB_percapita1, PIB_percapita2;
     float super_poder1, super_poder2;
@@ -27,7 +27,7 @@ int main() {
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
     // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
 
-    printf("Digite o númeiro da carta 1:\n");
+    /*printf("Digite o númeiro da carta 1:\n");
     scanf("%d", &carta1);
     printf("Digite o estado 1:\n");
     scanf("%s", estado1);
@@ -59,7 +59,7 @@ int main() {
     printf("Digite o PIB da cidade 2:\n");
     scanf("%f", &PIB2);
     printf("Digite a quantidade de pontos turísticos da cidade 2:\n");
-    scanf("%d", &pontos_tur2);
+    scanf("%d", &pontos_tur2);*/
 
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
@@ -189,7 +189,7 @@ Os valores do atributo para cada carta.
 Qual carta venceu.
 Em caso de empate, exibir a mensagem "Empate!".*/
 
-int escolhaJogador; 
+int primeiroAtributo, segundoAtributo, resultado1, resultado2; 
 
     printf("Jogar Trunfo\n");
     printf("Escolha um atributo para comparar:\n");
@@ -200,15 +200,16 @@ int escolhaJogador;
     printf("3. PIB\n");
     printf("4. Pontos Turísticos\n");
     printf("5. Densidade Populacional\n");
-    scanf("%d", &escolhaJogador);
+    scanf("%d", &primeiroAtributo);
 
-    switch (escolhaJogador)
+    switch (primeiroAtributo)
     {
     case 1:
-        printf("Comparando População: ");
+        printf("Você escolheu o atributo População\n");
         printf("%s: %ld -", cidade1, populacao1);
         printf(" %s: %ld\n", cidade2, populacao2);
-        if (populacao1 > populacao2) {
+        resultado1 = populacao1 > populacao2 ? 1 : 0;
+        if (resultado1 = 1) {
             printf("Cidade %s venceu!\n", cidade1);
         } else if (populacao1 < populacao2) {
             printf("Cidade %s venceu!\n", cidade2);
@@ -269,7 +270,15 @@ int escolhaJogador;
         break;
     }
 
-   
+    printf("Escolha um segundo atributo para comparar:\n");
+    printf("%s ", cidade1);
+    printf("Versus %s\n", cidade2);
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Pontos Turísticos\n");
+    printf("5. Densidade Populacional\n");
+    scanf("%d", &primeiroAtributo);
 
     return 0;
 }
