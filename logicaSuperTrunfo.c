@@ -68,12 +68,12 @@ int main() {
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
     
-    densidade_pop1 = (populacao1 / area1);
-    PIB_percapita1 = (PIB1 / populacao1);
+    densidade_pop1 = ((float)populacao1 / area1);
+    PIB_percapita1 = (PIB1 / (float)populacao1);
     super_poder1 = (populacao1 + area1 + PIB1 + pontos_tur1 + (1 / densidade_pop1) + PIB_percapita1);
 
-    densidade_pop2 = (populacao2 / area2);
-    PIB_percapita2 = (PIB2 / populacao2);
+    densidade_pop2 = ((float)populacao2 / area2);
+    PIB_percapita2 = (PIB2 / (float)populacao2);
     super_poder2 = (populacao2 + area2 + PIB2 + pontos_tur2 + (1 / densidade_pop2) + PIB_percapita2);
 
     printf("Carta: %d\n", carta1);
@@ -234,7 +234,7 @@ Em caso de empate, exibir a mensagem "Empate!".*/
                 case 2:
                 printf("Você escolheu o atributo ÁREA\n");
                 printf("%s: %d Km² -", cidade1, area1);
-                printf(" %s: %d Km²\n", cidade2, area1);
+                printf(" %s: %d Km²\n", cidade2, area2);
                 atributo1carta1 = area1;
                 atributo1carta2 = area2;
                 comparacao1 = atributo1carta1 > atributo1carta2 ? 1 : atributo1carta1 == atributo1carta2 ? 2 : 0;
@@ -376,7 +376,9 @@ Em caso de empate, exibir a mensagem "Empate!".*/
                 break;
             }
 
-        if ((comparacao1 && comparacao2) == 1 || ((comparacao1 == 1) && (comparacao2 == 2)) || ((comparacao1 == 2) && (comparacao2 == 1))) {
+        if ((comparacao1 == 1 && comparacao2 == 1) || 
+            (comparacao1 == 1 && comparacao2 == 2) || 
+            (comparacao1 == 2 && comparacao2 == 1)) {
             printf("Vitória de %s!\n", cidade1);
         } else if ((comparacao1 == 0) && (comparacao2 == 1) || (comparacao1 == 1) && (comparacao2 == 0)) {
             printf("Empate...\n");
